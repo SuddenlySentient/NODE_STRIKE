@@ -50,7 +50,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="WAR"
+config/name="NODE_STRIKE"
 run/main_scene="res://Scene/Spatial.tscn"
 
 [autoload]

@@ -52,6 +52,7 @@ _global_script_class_icons={
 
 config/name="NODE_STRIKE"
 run/main_scene="res://Scene/Spatial.tscn"
+config/icon="res://icon.png"
 
 [autoload]
 

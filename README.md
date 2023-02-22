@@ -9,7 +9,7 @@ UNITS :
   Cannonaut :
     MODEL   : 100%
     CODE    : 0% 
-  a inexpensive and fuel efficent slow walking unit with a low armor and medium damage a gun abnormally effective piercing. perfect for making swarms, be sure you can fuel them though!
+  a inexpensive and fuel efficent slow walking unit with a low armor and a medium damage gun with abnormally effective piercing. perfect for making swarms, be sure you can fuel them though!
 
   Rover : 
     MODEL   : 100%

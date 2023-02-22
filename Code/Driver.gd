@@ -11,7 +11,7 @@ export(int)var look_speed
 var velocity = Vector3.ZERO
 var engine_status = false
 
-var ideal_direction
+var ideal_direction = Vector3.FORWARD
 var look_direction = Vector3.FORWARD
 var move_direction = look_direction
 
@@ -77,7 +77,8 @@ func _physics_process(_delta):
 	if target_tracking == true :
 		target_transform = target_object.transform.origin
 	
-	point_at()
+	if engine_status == true :
+		point_at()
 	move()
 
 func point_at() :

@@ -23,3 +23,7 @@ shape = SubResource( 1 )
 
 [node name="Agent" type="NavigationAgent" parent="."]
 agent_height_offset = 0.25
+
+[node name="NavigationObstacle" type="NavigationObstacle" parent="."]
+estimate_radius = false
+radius = 5.0

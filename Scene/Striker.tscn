@@ -1,7 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Visuals/Striker/Striker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Code/Striker.gd" type="Script" id=2]
+[ext_resource path="res://Visuals/MuzzleFlash.tres" type="Material" id=3]
+[ext_resource path="res://Sounds/frenzyTap.mp3" type="AudioStream" id=4]
+
+[sub_resource type="QuadMesh" id=2]
+material = ExtResource( 3 )
+size = Vector2( 0.2, 0.2 )
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.475, 0.5, 0.9 )
@@ -13,13 +19,53 @@ reverse = 2
 max_speed = 40
 slip = 10
 look_speed = 50
+turret_rotation_speed = 50.0
+shoot_speed = 0.15
+accuracy = 2.5
 
 [node name="Striker" parent="." instance=ExtResource( 1 )]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -0.05 )
+
+[node name="Barrel" parent="Striker/Node2/Main/Turret/Barrel2" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -0.078 )
+
+[node name="RayCast_ideal" type="RayCast" parent="Striker/Node2/Main/Turret/Barrel2" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.233 )
+cast_to = Vector3( 0, 0, -10 )
+
+[node name="RayCast_Actual" type="RayCast" parent="Striker/Node2/Main/Turret/Barrel2" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.233 )
+cast_to = Vector3( 0, 0, -50 )
+
+[node name="MuzzleFlash" type="Position3D" parent="Striker/Node2/Main/Turret/Barrel2/RayCast_Actual"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -0.1 )
+visible = false
+
+[node name="MeshInstance" type="MeshInstance" parent="Striker/Node2/Main/Turret/Barrel2/RayCast_Actual/MuzzleFlash"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../..")
+
+[node name="MeshInstance2" type="MeshInstance" parent="Striker/Node2/Main/Turret/Barrel2/RayCast_Actual/MuzzleFlash"]
+transform = Transform( 1, -8.74228e-08, 3.17865e-08, -8.74228e-08, -1, 0, 3.17865e-08, -2.77886e-15, -1, 0, 0, 0 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../..")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Striker/Node2/Main/Turret/Barrel2" index="3"]
+stream = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="Striker/Node2/Main/Turret/Barrel2" index="4"]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 shape = SubResource( 1 )
 
 [node name="Agent" type="NavigationAgent" parent="."]
+target_desired_distance = 5.0
 agent_height_offset = 0.25
+
+[node name="NavigationObstacle" type="NavigationObstacle" parent="."]
+estimate_radius = false
+radius = 5.0
+
+[editable path="Striker"]

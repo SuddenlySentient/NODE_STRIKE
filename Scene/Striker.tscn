@@ -14,6 +14,8 @@ extents = Vector3( 0.475, 0.5, 0.9 )
 
 [node name="Striker" type="KinematicBody"]
 script = ExtResource( 2 )
+max_health = 30
+armor = 2
 acceleration = 4
 reverse = 2
 max_speed = 40
@@ -31,11 +33,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -0.078 )
 
 [node name="RayCast_ideal" type="RayCast" parent="Striker/Node2/Main/Turret/Barrel2" index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.233 )
-cast_to = Vector3( 0, 0, -10 )
+cast_to = Vector3( 0, 0, -15 )
 
 [node name="RayCast_Actual" type="RayCast" parent="Striker/Node2/Main/Turret/Barrel2" index="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.233 )
-cast_to = Vector3( 0, 0, -50 )
+cast_to = Vector3( 0, 0, -25 )
 
 [node name="MuzzleFlash" type="Position3D" parent="Striker/Node2/Main/Turret/Barrel2/RayCast_Actual"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -0.1 )
@@ -63,8 +65,5 @@ shape = SubResource( 1 )
 [node name="Agent" type="NavigationAgent" parent="."]
 target_desired_distance = 5.0
 agent_height_offset = 0.25
-
-[node name="NavigationObstacle" type="NavigationObstacle" parent="."]
-radius = 5.0
 
 [editable path="Striker"]

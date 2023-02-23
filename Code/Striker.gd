@@ -36,7 +36,7 @@ func _process(_delta):
 	
 	if pointing == true and shoot_timer.time_left == 0 :
 		shoot_timer.start(shoot_speed)
-		fire_gun(0, 0)
+		fire_gun(0.25, 1)
 
 func rotate_turret():
 	
@@ -68,11 +68,16 @@ func fire_gun(damage, piercing):
 	
 	raycast_actual.force_raycast_update()
 	
-	if raycast_actual.get_collider() != null :
+	var hit_target = raycast_actual.get_collider()
+	
+	if hit_target != null :
 		var bullet_decal = decal.instance()
-		raycast_actual.get_collider().add_child(bullet_decal)
+		hit_target.add_child(bullet_decal)
 		bullet_decal.global_transform.origin = raycast_actual.get_collision_point()
 		bullet_decal.look_at(raycast_actual.get_collision_point() + raycast_actual.get_collision_normal(), Vector3.UP)
+		
+		if hit_target.get_class() == "KinematicBody" :
+			hit_target.take_damage(damage, piercing)
 	
 	yield(get_tree().create_timer(0.25), "timeout")
 	muzzleFlash.hide()

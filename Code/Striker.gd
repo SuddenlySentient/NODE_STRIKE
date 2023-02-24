@@ -7,8 +7,10 @@ onready var muzzleFlash = $"Striker/Node2/Main/Turret/Barrel2/RayCast_Actual/Muz
 onready var sound = $"Striker/Node2/Main/Turret/Barrel2/AudioStreamPlayer3D"
 onready var raycast_actual = $"Striker/Node2/Main/Turret/Barrel2/RayCast_Actual"
 onready var raycast_ideal = $"Striker/Node2/Main/Turret/Barrel2/RayCast_ideal"
-onready var decal = preload("res://Scene/Bullet_Decal.tscn")
 onready var shoot_timer = $"Striker/Node2/Main/Turret/Barrel2/Timer"
+
+onready var decal = preload("res://Scene/Bullet_Decal.tscn")
+onready var bolt = preload("res://Scene/Bolt.tscn")
 
 onready var rover = $"../Rover"
 onready var target = rover 
@@ -17,10 +19,19 @@ var pointing
 var turret_rotation = 0
 
 export(float) var turret_rotation_speed
-export(float) var shoot_speed
 export(float) var accuracy
+export(float) var shoot_speed
+
+export(float) var machinegun_damage
+export(float) var machinegun_piercing
+
+var hits = 0.0
+var misses = 0.0
+var accuracy_percentage = 0.0
 
 func _ready():
+	
+	shoot_speed = 1 / shoot_speed
 	
 	yield(get_tree().create_timer(3), "timeout")
 	
@@ -29,6 +40,8 @@ func _ready():
 		yield(drive_to_object(target, 5), "completed")
 		
 		yield(get_tree().create_timer(3), "timeout")
+		
+		caluate_percentage()
 
 func _process(_delta):
 	
@@ -36,7 +49,7 @@ func _process(_delta):
 	
 	if pointing == true and shoot_timer.time_left == 0 :
 		shoot_timer.start(shoot_speed)
-		fire_gun(0.25, 1)
+		fire_gun(machinegun_damage, machinegun_piercing)
 
 func rotate_turret():
 	
@@ -62,7 +75,7 @@ func fire_gun(damage, piercing):
 	sound.pitch_scale = rand_range(0.9, 1.1)
 	sound.play(0)
 	
-	var inaccuracy = Vector2(rand_range(-accuracy, accuracy),rand_range(-accuracy, accuracy)).normalized()
+	var inaccuracy = Vector2(rand_range(-accuracy, accuracy), rand_range(-accuracy, accuracy)).normalized()
 	raycast_actual.rotation_degrees.x = inaccuracy.x
 	raycast_actual.rotation_degrees.y = inaccuracy.y
 	
@@ -71,13 +84,28 @@ func fire_gun(damage, piercing):
 	var hit_target = raycast_actual.get_collider()
 	
 	if hit_target != null :
+		
 		var bullet_decal = decal.instance()
 		hit_target.add_child(bullet_decal)
 		bullet_decal.global_transform.origin = raycast_actual.get_collision_point()
 		bullet_decal.look_at(raycast_actual.get_collision_point() + raycast_actual.get_collision_normal(), Vector3.UP)
 		
-		if hit_target.get_class() == "KinematicBody" :
+		if hit_target is Unit :
+			hits += 1
 			hit_target.take_damage(damage, piercing)
+		else :
+			misses += 1
 	
-	yield(get_tree().create_timer(0.25), "timeout")
+	var shot_bolt = bolt.instance()
+	
+	$"..".add_child(shot_bolt)
+	shot_bolt.activate(barrel, raycast_actual.get_collision_point())
+	
+	
+	yield(get_tree().create_timer(shoot_speed), "timeout")
 	muzzleFlash.hide()
+
+func caluate_percentage() :
+	var total_shot = hits + misses
+	accuracy_percentage = (hits / total_shot) * 100
+	print(accuracy_percentage,"%")

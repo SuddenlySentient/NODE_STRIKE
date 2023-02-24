@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Visuals/Explosion Spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://Sounds/Explosion.mp3" type="AudioStream" id=2]
 
 [node name="Explosion" type="Position3D"]
 
 [node name="Explosion 1" type="Sprite3D" parent="."]
+offset = Vector2( 0, 15 )
 texture = ExtResource( 1 )
 hframes = 5
 vframes = 4
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 2 )

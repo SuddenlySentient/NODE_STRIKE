@@ -28,7 +28,7 @@ func take_damage(damage, piercing) :
 	damage = damage * damage_reduction
 	
 	health -= damage
-	print ("	",self," : owch! I took ",damage," damage! i now have ",health," health")
+	#print ("	",self," : owch! I took ",damage," damage! i now have ",health," health")
 	
 	if health <= 0 :
 		die()

@@ -17,13 +17,15 @@ script = ExtResource( 2 )
 max_health = 30
 armor = 2
 acceleration = 4
-reverse = 2
+reverse = 8
 max_speed = 40
 slip = 10
 look_speed = 50
-turret_rotation_speed = 50.0
-shoot_speed = 0.15
-accuracy = 5.0
+turret_rotation_speed = 10.0
+accuracy = 15.0
+shoot_speed = 12.0
+machinegun_damage = 0.125
+machinegun_piercing = 1.0
 
 [node name="Striker" parent="." instance=ExtResource( 1 )]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -0.05 )

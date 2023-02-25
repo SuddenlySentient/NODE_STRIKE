@@ -25,9 +25,7 @@ A inexpensive and fuel efficent slow walking unit with a low armor and a medium 
 Rover : 
 
 	MODEL   : 100%
-
 	CODE    : 15% 
-
 	SOUND   : 0%
 
 	HEALTH   : 15
@@ -40,9 +38,7 @@ A unit designed for transporting materials, fuel, and scouting. the base logisti
 Striker :
 
 	MODEL   : 100%
-
 	CODE    : 75% 
-
 	SOUND   : 25%
 
 	HEALTH   : 30
@@ -58,9 +54,7 @@ A fast but not agile unit with medium armor, it has short range low piercing mac
 MG :
 
 	MODEL   : 100%
-
 	CODE    : 33% 
-
 	SOUND   : 0%
 
 	HEALTH   : 3

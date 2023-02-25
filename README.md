@@ -47,7 +47,7 @@ Striker :
 	DAMAGE   : 0.125
 	PIERCING : 2
 
-A fast but not agile unit with medium armor, it has short range low piercing machine gun turret on it. good at scouting, taking out other scouts, and doing hit-and-run attacks on unguarded infanstructure.
+A fast but not agile unit with medium armor, it has short range low piercing machine gun turret on it. good at scouting, taking out fast low armor units, and doing hit-and-run attacks on unguarded infanstructure.
 
 
 

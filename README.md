@@ -18,6 +18,7 @@ Cannonaut :
 	DAMAGE   : UNDEFINED
 	DPS	 : UNDEFINED
 	PIERCING : UNDEFINED
+	ACCURACY : UNDEFINED
 
 A inexpensive and fuel efficent slow walking unit with a low armor and a medium damage gun with abnormally effective piercing. perfect for making swarms, be sure you can fuel them though!
 
@@ -48,6 +49,7 @@ Striker :
 	DAMAGE   : 0.25
 	DPS	 : 3
 	PIERCING : 2
+	ACCURACY : LOW
 
 A fast but not agile unit with medium armor, it has short range low piercing machine gun turret on it. good at scouting, taking out fast low armor units, and doing hit-and-run attacks on unguarded infanstructure.
 
@@ -63,7 +65,6 @@ MG :
 	ARMOR    : 1
 
 	DAMAGE   : UNDEFINED
-	DPS	 : UNDEFINED
 	PIERCING : UNDEFINED
 
 Designed purely to quickly reach and then explode on enemy targets, the Mobile Grenade has very limited fuel, however it is designed to be able to attach to friendly larger units and deploy when enemies are near.

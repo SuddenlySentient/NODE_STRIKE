@@ -22,10 +22,10 @@ max_speed = 40
 slip = 10
 look_speed = 50
 turret_rotation_speed = 10.0
-accuracy = 15.0
+accuracy = 1.0
 shoot_speed = 12.0
 machinegun_damage = 0.125
-machinegun_piercing = 1.0
+machinegun_piercing = 2.0
 
 [node name="Striker" parent="." instance=ExtResource( 1 )]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -0.05 )
@@ -35,6 +35,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -0.078 )
 
 [node name="RayCast_ideal" type="RayCast" parent="Striker/Node2/Main/Turret/Barrel2" index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.233 )
+visible = false
 cast_to = Vector3( 0, 0, -15 )
 
 [node name="RayCast_Actual" type="RayCast" parent="Striker/Node2/Main/Turret/Barrel2" index="2"]
@@ -53,6 +54,9 @@ skeleton = NodePath("../..")
 transform = Transform( 1, -8.74228e-08, 3.17865e-08, -8.74228e-08, -1, 0, 3.17865e-08, -2.77886e-15, -1, 0, 0, 0 )
 mesh = SubResource( 2 )
 skeleton = NodePath("../..")
+
+[node name="No Hit" type="Position3D" parent="Striker/Node2/Main/Turret/Barrel2/RayCast_Actual"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50 )
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Striker/Node2/Main/Turret/Barrel2" index="3"]
 stream = ExtResource( 4 )

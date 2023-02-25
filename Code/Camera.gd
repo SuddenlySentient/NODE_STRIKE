@@ -1,9 +1,12 @@
 extends Camera
 
-onready var target1 = $"../Rover"
+#onready var target1 = $"../Rover"
 #onready var target1 = $"../Striker"
-onready var target2 = $"../Striker"
+onready var target1 = $"../Mobile Grenade"
+#onready var target2 = $"../Striker"
 #onready var target2 = $"../Rover"
+onready var target2 = $"../Mobile Grenade"
+
 
 export(float) var softness
 export(float) var minDistance

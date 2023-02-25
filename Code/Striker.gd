@@ -8,6 +8,7 @@ onready var sound = $"Striker/Node2/Main/Turret/Barrel2/AudioStreamPlayer3D"
 onready var raycast_actual = $"Striker/Node2/Main/Turret/Barrel2/RayCast_Actual"
 onready var raycast_ideal = $"Striker/Node2/Main/Turret/Barrel2/RayCast_ideal"
 onready var shoot_timer = $"Striker/Node2/Main/Turret/Barrel2/Timer"
+onready var no_hit = $"Striker/Node2/Main/Turret/Barrel2/RayCast_Actual/No Hit"
 
 onready var decal = preload("res://Scene/Bullet_Decal.tscn")
 onready var bolt = preload("res://Scene/Bolt.tscn")
@@ -76,14 +77,18 @@ func fire_gun(damage, piercing):
 	sound.play(0)
 	
 	var inaccuracy = Vector2(rand_range(-accuracy, accuracy), rand_range(-accuracy, accuracy)).normalized()
-	raycast_actual.rotation_degrees.x = inaccuracy.x
-	raycast_actual.rotation_degrees.y = inaccuracy.y
+	
+	raycast_actual.cast_to.y = inaccuracy.y
+	raycast_actual.cast_to.x = inaccuracy.x
 	
 	raycast_actual.force_raycast_update()
 	
-	var hit_target = raycast_actual.get_collider()
+	var shot_bolt = bolt.instance()
+	$"..".add_child(shot_bolt)
 	
-	if hit_target != null :
+	if raycast_actual.is_colliding() :
+		
+		var hit_target = raycast_actual.get_collider()
 		
 		var bullet_decal = decal.instance()
 		hit_target.add_child(bullet_decal)
@@ -95,12 +100,10 @@ func fire_gun(damage, piercing):
 			hit_target.take_damage(damage, piercing)
 		else :
 			misses += 1
-	
-	var shot_bolt = bolt.instance()
-	
-	$"..".add_child(shot_bolt)
-	shot_bolt.activate(barrel, raycast_actual.get_collision_point())
-	
+		
+		shot_bolt.activate(barrel, raycast_actual.get_collision_point())
+	else :
+		shot_bolt.activate(barrel, no_hit.global_transform.origin)
 	
 	yield(get_tree().create_timer(shoot_speed), "timeout")
 	muzzleFlash.hide()

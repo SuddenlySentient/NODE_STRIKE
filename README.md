@@ -1,5 +1,7 @@
 # NODE_STRIKE
 
+https://trello.com/b/HoDhKIgs/nodestrike
+
 an RTS game
 
 coming someday hopfuly

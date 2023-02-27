@@ -39,7 +39,7 @@ Striker :
 	ARMOR    : 4
 
 	DAMAGE   : 0.5
-	DPS	 : 3
+	FIRE-RATE: 12
 	PIERCING : 1
 	ACCURACY : 1
 

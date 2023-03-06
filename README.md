@@ -1,5 +1,7 @@
 # NODE_STRIKE
 
+NOTE : after moving to godot 4 the addon i used for uploading my current project to github is no longer available. progress is still being made. i will continue to update the github when that addons updates
+
 https://trello.com/b/HoDhKIgs/nodestrike
 
 an RTS game

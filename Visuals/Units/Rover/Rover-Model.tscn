@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" uid="uid://cb67rh0q4odk5" path="res://Visuals/Units/Rover/Armored Carrier.gltf" id="1"]
+
+[node name="Armored Carrier" instance=ExtResource( 1 )]

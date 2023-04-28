@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" uid="uid://b67rjekbm3j3m" path="res://Visuals/Units/Mobile Grenade/Mobile_Grenade.gltf" id="1"]
+
+[node name="Mobile Grenade" instance=ExtResource( 1 )]

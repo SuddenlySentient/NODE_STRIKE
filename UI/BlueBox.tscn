@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://drfyiyx8qwaun"]
+
+[ext_resource type="Texture2D" uid="uid://d1wslnsqpqd2m" path="res://UI/BlueBox.png" id="1"]
+[ext_resource type="FontFile" uid="uid://nmgb0w7doiir" path="res://UI/PressStart2P-Regular.ttf" id="2_m1e5v"]
+
+[node name="Blue Box" type="Control"]
+custom_minimum_size = Vector2(1720, 110)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1720.0
+offset_bottom = 110.0
+
+[node name="BlueBox" type="Control" parent="."]
+custom_minimum_size = Vector2(1720, 110)
+anchors_preset = 0
+offset_right = 1720.0
+offset_bottom = 110.0
+
+[node name="TextureRect" type="TextureRect" parent="BlueBox"]
+layout_mode = 0
+offset_right = 46.0
+offset_bottom = 11.0
+scale = Vector2(10, 10)
+texture = ExtResource("1")
+
+[node name="Label2" type="Label" parent="BlueBox"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 1690.0
+offset_bottom = 81.0
+theme_override_colors/font_color = Color(0.188235, 0.188235, 0.768627, 1)
+theme_override_fonts/font = ExtResource("2_m1e5v")
+theme_override_font_sizes/font_size = 32
+text = "TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST "
+vertical_alignment = 1
+clip_text = true
+uppercase = true

@@ -2,16 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k11bv8jy7u63"
-path="res://.godot/imported/Muzzle Flash.png-d8607d75b2d8524901273efb5b987968.ctex"
+uid="uid://c0s64g26jawu8"
+path="res://.godot/imported/Mobile_Grenade_0.png-9c4708cdcd1b63a442c510d5327bfb0d.ctex"
 metadata={
 "vram_texture": false
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://Visuals/Muzzle Flash.png"
-dest_files=["res://.godot/imported/Muzzle Flash.png-d8607d75b2d8524901273efb5b987968.ctex"]
+source_file="res://Visuals/Units/Mobile Grenade/Mobile_Grenade_0.png"
+dest_files=["res://.godot/imported/Mobile_Grenade_0.png-9c4708cdcd1b63a442c510d5327bfb0d.ctex"]
 
 [params]
 
@@ -19,7 +20,7 @@ compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=2
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1

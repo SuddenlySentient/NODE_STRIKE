@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" uid="uid://dndeb2148gji2" path="res://Visuals/Units/Striker/Striker.gltf" id="1"]
+
+[node name="Striker" instance=ExtResource( 1 )]
+transform = Transform3D( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )

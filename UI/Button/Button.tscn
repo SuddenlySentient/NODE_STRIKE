@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp4pfq8vrmip8"]
+
+[ext_resource type="Texture2D" uid="uid://cq2mjhy8y85ba" path="res://UI/Button/Button.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://cg0yhdtfj7nc4" path="res://UI/Button/PushedButton.png" id="2"]
+
+[node name="Button" type="TextureButton"]
+offset_right = 16.0
+offset_bottom = 19.0
+action_mode = 0
+keep_pressed_outside = true
+texture_normal = ExtResource("1")
+texture_pressed = ExtResource("2")
+stretch_mode = 4

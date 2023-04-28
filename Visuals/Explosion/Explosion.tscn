@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://d216el3sc00ys"]
+
+[ext_resource type="Texture2D" uid="uid://ck5wx4ri0fios" path="res://Visuals/Explosion/spritesheet.png" id="1_v2aua"]
+[ext_resource type="Script" path="res://Code/Explosion.gd" id="2"]
+
+[node name="Explosion" type="Node3D"]
+script = ExtResource("2")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+offset = Vector2(0, 15)
+billboard = 1
+double_sided = false
+no_depth_test = true
+render_priority = 1
+texture = ExtResource("1_v2aua")
+hframes = 5
+vframes = 4

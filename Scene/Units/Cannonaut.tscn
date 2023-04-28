@@ -1,0 +1,113 @@
+[gd_scene load_steps=3 format=3 uid="uid://df3t31q2w485x"]
+
+[ext_resource type="PackedScene" uid="uid://3n6j7kld6umv" path="res://Visuals/Units/Cannonaut/Cannonaut.gltf" id="1_pk81y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nq2dr"]
+size = Vector3(1.7, 1.35, 1.7)
+
+[node name="Cannonaut" type="RigidBody3D"]
+
+[node name="Cannonaut" parent="." instance=ExtResource("1_pk81y")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Front Left Leg" type="SkeletonIK3D" parent="Cannonaut/Armature/Skeleton3D" index="0"]
+process_priority = 1
+root_bone = &"BONE Upper Front Left Leg"
+tip_bone = &"BONE Front Left Foot"
+use_magnet = true
+magnet = Vector3(-5, 10, 2.5)
+target_node = NodePath("../../../../Front Left Leg Target")
+
+[node name="Front Right Leg" type="SkeletonIK3D" parent="Cannonaut/Armature/Skeleton3D" index="1"]
+process_priority = 1
+root_bone = &"BONE Upper Front Right Leg"
+tip_bone = &"BONE Front Right Foot"
+use_magnet = true
+magnet = Vector3(5, 10, 2.5)
+target_node = NodePath("../../../../Front Right Leg Target")
+
+[node name="Back Left Leg" type="SkeletonIK3D" parent="Cannonaut/Armature/Skeleton3D" index="2"]
+process_priority = 1
+root_bone = &"BONE Upper Back Left Leg"
+tip_bone = &"BONE Back Left Foot"
+use_magnet = true
+magnet = Vector3(-5, 10, -2.5)
+target_node = NodePath("../../../../Back Left Leg Target")
+
+[node name="Back Right Leg" type="SkeletonIK3D" parent="Cannonaut/Armature/Skeleton3D" index="3"]
+process_priority = 1
+root_bone = &"BONE Upper Back Right Leg"
+tip_bone = &"BONE Back Right Foot"
+use_magnet = true
+magnet = Vector3(5, 10, -2.5)
+target_node = NodePath("../../../../Back Right Leg Target")
+
+[node name="Antenne_2" parent="Cannonaut/Armature/Skeleton3D" index="4"]
+transform = Transform3D(1, -2.42936e-22, 7.10543e-15, 7.01948e-23, 1, -1.73636e-15, -7.10543e-15, -3.82137e-15, 1, 0, 0.6875, 0.125)
+bone_idx = 4
+
+[node name="Barrel" parent="Cannonaut/Armature/Skeleton3D" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46875, -0.25)
+bone_idx = 5
+
+[node name="Gun Chassis" parent="Cannonaut/Armature/Skeleton3D" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+bone_idx = 6
+
+[node name="Leg Chassis" parent="Cannonaut/Armature/Skeleton3D" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0625, 0)
+bone_idx = 7
+
+[node name="BottomFrontRightLeg" parent="Cannonaut/Armature/Skeleton3D" index="8"]
+transform = Transform3D(0.72973, -0.230207, -0.643816, 0.0115227, 0.945622, -0.325063, 0.683638, 0.22979, 0.692701, 0.183643, 0.142383, -0.173141)
+bone_idx = 11
+
+[node name="UpperFrontRightLeg" parent="Cannonaut/Armature/Skeleton3D" index="9"]
+transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0.1875, 0.125, -0.1875)
+bone_idx = 12
+
+[node name="BottomFrontLeftLeg" parent="Cannonaut/Armature/Skeleton3D" index="10"]
+transform = Transform3D(0.72973, 0.230207, 0.643816, -0.0115227, 0.945622, -0.325063, -0.683638, 0.22979, 0.692701, -0.183643, 0.142383, -0.173141)
+bone_idx = 16
+
+[node name="UpperFrontLeftLeg" parent="Cannonaut/Armature/Skeleton3D" index="11"]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, -0.1875, 0.125, -0.1875)
+bone_idx = 17
+
+[node name="BottomBackRightLeg" parent="Cannonaut/Armature/Skeleton3D" index="12"]
+transform = Transform3D(-0.667004, -0.229652, -0.708778, 0.0194492, 0.945619, -0.324694, 0.744801, -0.230357, -0.626265, 0.169688, 0.142462, 0.187413)
+bone_idx = 21
+
+[node name="UpperBackRightLeg" parent="Cannonaut/Armature/Skeleton3D" index="13"]
+transform = Transform3D(-0.707107, 0.5, -0.5, 2.98023e-08, 0.707107, 0.707107, 0.707107, 0.5, -0.5, 0.1875, 0.125, 0.1875)
+bone_idx = 22
+
+[node name="BottomBackLeftLeg" parent="Cannonaut/Armature/Skeleton3D" index="14"]
+transform = Transform3D(-0.667004, 0.229652, 0.708778, -0.0194492, 0.945619, -0.324694, -0.744801, -0.230357, -0.626265, -0.169688, 0.142462, 0.187413)
+bone_idx = 26
+
+[node name="UpperBackLeftLeg" parent="Cannonaut/Armature/Skeleton3D" index="15"]
+transform = Transform3D(-0.707107, -0.5, 0.5, -2.98023e-08, 0.707107, 0.707107, -0.707107, 0.5, -0.5, -0.1875, 0.125, 0.1875)
+bone_idx = 27
+
+[node name="Front Left Leg Target" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0, -0.75)
+top_level = true
+
+[node name="Front Right Leg Target" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, -0.75)
+top_level = true
+
+[node name="Back Left Leg Target" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0, 0.75)
+top_level = true
+
+[node name="Back Right Leg Target" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0.75)
+top_level = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.675, 0)
+shape = SubResource("BoxShape3D_nq2dr")
+
+[editable path="Cannonaut"]

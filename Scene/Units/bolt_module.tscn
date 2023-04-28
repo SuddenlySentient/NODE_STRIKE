@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://Code/Units/bolt_module.gd" id="1_0pwjr"]
+[ext_resource type="AudioStream" uid="uid://d4kiu6o6bo8f5" path="res://Sounds/frenzyTap.mp3" id="2_5luht"]
+[ext_resource type="AudioStream" uid="uid://cypwnrk5njw5i" path="res://Sounds/LBP/flickering_light_01.wav" id="3_5dpsg"]
+
+[node name="Bolt Module" type="Marker3D"]
+script = ExtResource("1_0pwjr")
+fire_rate = 1.0
+damage = 1.0
+piercing = 1.0
+
+[node name="Fire" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_5luht")
+
+[node name="Dry Fire" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_5dpsg")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

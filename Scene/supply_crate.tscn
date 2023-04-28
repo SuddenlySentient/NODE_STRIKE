@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuk5ffh0xotwm"]
+
+[ext_resource type="Script" path="res://Code/supply_crate.gd" id="1_02frk"]
+[ext_resource type="PackedScene" uid="uid://bw2ges0rqimjf" path="res://Visuals/Supply Crate/Supply Crate.gltf" id="1_isgwe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ippr"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[node name="Supply Crate" type="RigidBody3D"]
+script = ExtResource("1_02frk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("BoxShape3D_5ippr")
+
+[node name="Supply Crate" parent="." instance=ExtResource("1_isgwe")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

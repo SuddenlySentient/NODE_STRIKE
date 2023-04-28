@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://Visuals/Units/Mobile Grenade/Mobile_Grenade.tscn" id="1"]
+[ext_resource type="Script" path="res://Code/Units/Mobile Grenade.gd" id="2"]
+
+[sub_resource type="BoxShape3D" id="1"]
+size = Vector3(0.25, 0.75, 0.75)
+
+[node name="Mobile Grenade" type="CharacterBody3D"]
+script = ExtResource("2")
+max_health = 3
+armor = 1
+acceleration = 8
+reverse = 8
+max_speed = 35
+slip = 50
+look_speed = 25
+
+[node name="Mobile Grenade" parent="." instance=ExtResource("1")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Wheel" parent="Mobile Grenade/Node2/Main" index="0"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -2.08167e-17, 0.25, -5.20417e-17)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
+shape = SubResource("1")
+
+[node name="Agent" type="NavigationAgent3D" parent="."]
+target_desired_distance = 5.0
+agent_height_offset = 0.25
+
+[editable path="Mobile Grenade"]

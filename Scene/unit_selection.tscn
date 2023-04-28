@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfixo8qo886lu"]
+
+[ext_resource type="Script" path="res://Code/unit_selection.gd" id="1_5cqi2"]
+[ext_resource type="PackedScene" uid="uid://ygj7rw6rd0nx" path="res://Visuals/Unit Selection/unit_select.tscn" id="1_70dpn"]
+[ext_resource type="PackedScene" uid="uid://qoo7rhgyh4t5" path="res://Visuals/Unit Selection/unit_attack.tscn" id="2_kor53"]
+[ext_resource type="PackedScene" uid="uid://h4j7ab7sxwj0" path="res://Visuals/Unit Selection/unit_support.tscn" id="3_4bnf6"]
+
+[node name="Unit Selection" type="Node3D"]
+transform = Transform3D(7.5, 0, 0, 0, 7.5, 0, 0, 0, 7.5, 0, 0, 0)
+script = ExtResource("1_5cqi2")
+spin_rate = 15.0
+
+[node name="Unit Select" parent="." instance=ExtResource("1_70dpn")]
+
+[node name="Unit Attack" parent="." instance=ExtResource("2_kor53")]
+visible = false
+
+[node name="Unit Support" parent="." instance=ExtResource("3_4bnf6")]
+visible = false

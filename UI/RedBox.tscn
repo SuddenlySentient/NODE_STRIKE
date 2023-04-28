@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp4ngsr7eb0x8"]
+
+[ext_resource type="Texture2D" uid="uid://s6yjyamgiuym" path="res://UI/RedBox.png" id="1"]
+[ext_resource type="FontFile" uid="uid://nmgb0w7doiir" path="res://UI/PressStart2P-Regular.ttf" id="2_2ndg8"]
+
+[node name="Red Box" type="Control"]
+custom_minimum_size = Vector2(260, 260)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 260.0
+offset_bottom = 260.0
+
+[node name="RedBox" type="Control" parent="."]
+custom_minimum_size = Vector2(260, 260)
+anchors_preset = 0
+offset_right = 260.0
+offset_bottom = 260.0
+
+[node name="TextureRect" type="TextureRect" parent="RedBox"]
+layout_mode = 0
+offset_right = 26.0
+offset_bottom = 26.0
+scale = Vector2(10, 10)
+texture = ExtResource("1")
+
+[node name="Red Box Text" type="Label" parent="RedBox"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 33.0
+offset_right = 227.0
+offset_bottom = 227.0
+theme_override_colors/font_color = Color(0.768627, 0.188235, 0.188235, 1)
+theme_override_fonts/font = ExtResource("2_2ndg8")
+text = "STRIKER
+RED
+
+HP   | 30/30
+ARmor|     4
+Fuel |  100%
+DMg  |   0.5
+AP   |     2
+FR   |    12
+SPEED|    30"
+clip_text = true
+uppercase = true

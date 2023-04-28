@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://dp8i3voax6j6w"]
+
+[ext_resource type="PackedScene" uid="uid://drfyiyx8qwaun" path="res://UI/BlueBox.tscn" id="1"]
+[ext_resource type="Script" path="res://Code/UI/UI.gd" id="1_5vrbm"]
+[ext_resource type="PackedScene" uid="uid://pd5k1t403cgj" path="res://UI/GreenBox.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://cp4ngsr7eb0x8" path="res://UI/RedBox.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bkn28tqu2j6rx" path="res://UI/Panel.tscn" id="3_yefqm"]
+
+[node name="UI" type="Control"]
+custom_minimum_size = Vector2(192, 108)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5vrbm")
+
+[node name="Red Box" parent="." instance=ExtResource("3")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -260.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Red Box Text" parent="Red Box/RedBox" index="1"]
+text = "ERRRRMMm
+CHECK PLEASE
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -260.0
+offset_right = 660.0
+grow_vertical = 0
+theme_override_constants/separation = -10
+
+[node name="Panel" parent="VBoxContainer" instance=ExtResource("3_yefqm")]
+layout_mode = 2
+
+[node name="Green Box" parent="VBoxContainer" instance=ExtResource("2")]
+layout_mode = 2
+
+[node name="Blue Box" parent="." instance=ExtResource("1")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -860.0
+offset_right = 860.0
+grow_horizontal = 2
+
+[editable path="Red Box"]
+[editable path="VBoxContainer/Panel"]
+[editable path="VBoxContainer/Green Box"]
